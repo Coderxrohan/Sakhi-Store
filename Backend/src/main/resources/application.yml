@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sakhi_store
+    username: postgres
+    password: Pass1290@
+  jpa:
+    hibernate:
+      ddl-auto: update   # for dev; switch to validate or use Flyway in prod
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+server:
+  port: 8080
