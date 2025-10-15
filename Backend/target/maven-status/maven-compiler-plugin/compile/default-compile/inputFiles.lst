@@ -12,7 +12,9 @@ C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\servi
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\controller\AuthController.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\security\JwtFilter.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\dto\response\UserResponse.java
+C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\dto\request\ProductResponse.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\dto\request\RegisterRequest.java
+C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\dto\response\OrderResponse.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\dto\request\OrderRequest.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\dto\request\ProductRequest.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\service\interfaces\OrderService.java
@@ -27,6 +29,7 @@ C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\repos
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\SakhiStoreApplication.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\config\SecurityConfig.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\security\CustomUserDetails.java
+C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\controller\HomeController.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\service\interfaces\UserService.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\model\Order.java
 C:\Users\Desktop\Desktop\Sakhi-Store\Backend\src\main\java\com\sakhi\store\model\Inventory.java
