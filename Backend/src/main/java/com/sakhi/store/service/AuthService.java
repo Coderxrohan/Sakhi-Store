@@ -2,7 +2,7 @@ package com.sakhi.store.service;
 
 import com.sakhi.store.model.User;
 import com.sakhi.store.repository.UserRepository;
-import com.sakhi.store.security.JwtUtils;
+import com.sakhi.store.security.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.Random;
@@ -11,7 +11,7 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class AuthService {
     private final UserRepository userRepository;
-    private final JwtUtils jwtUtils;
+    private final JwtUtil jwtUtil;
 
     public String sendOtp(String mobileNumber) {
         String otp = String.format("%06d", new Random().nextInt(999999));
@@ -30,6 +30,6 @@ public class AuthService {
         user.setVerified(true);
         user.setOtp(null);
         userRepository.save(user);
-        return jwtUtils.generateToken(mobileNumber);
+        return jwtUtil.generateToken(mobileNumber);
     }
 }

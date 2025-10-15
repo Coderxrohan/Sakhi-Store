@@ -1,12 +1,12 @@
 package com.sakhi.store.security;
-import com.sakhi.store.security.JwtUtils;
+import com.sakhi.store.security.JwtUtil;
 
 import io.jsonwebtoken.*;
 import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Component
-public class JwtUtils
+public class JwtUtil
 {
 
     private final String SECRET_KEY = "sakhi_mobile_secret";
