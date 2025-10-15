@@ -31,28 +31,120 @@ The system includes product management, order tracking, payment handling, and se
 ## 📁 Folder Structure
 
 ```bash
-Sakhi-Store/
+sakhi-store-backend/
 │
-├── backend/
-│   ├── pom.xml                     # Maven project file
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/sakhi/store/
-│   │   │   │   ├── controller/     # REST API controllers
-│   │   │   │   ├── model/          # Entity models
-│   │   │   │   ├── repository/     # JPA repositories
-│   │   │   │   ├── service/
-│   │   │   │   │   ├── impl/       # Service implementations
-│   │   │   │   │   └── interfaces/ # Service interfaces
-│   │   │   │   └── config/         # Security, CORS, Swagger configs
-│   │   │   └── resources/
-│   │   │       ├── application.properties  # Database and app configs
-│   │   │       └── static/ & templates/    # (Optional) For web assets
-│   │   └── test/                           # Unit and integration tests
-│   └── README.md
+├── 📄 pom.xml                               # Maven configuration (dependencies, plugins)
+├── 📄 README.md                             # Overview, setup guide, API usage
 │
-├── frontend/ (optional)
-│   └── (React / Next.js / Angular UI code)
+├── 📁 src/
+│   ├── 📁 main/
+│   │   ├── 📁 java/
+│   │   │   └── 📁 com/
+│   │   │       └── 📁 sakhi/
+│   │   │           └── 📁 store/
+│   │   │               ├── 📄 SakhiStoreApplication.java     # Spring Boot main entry point
+│   │   │               │
+│   │   │               ├── 📁 config/                        # Configuration classes
+│   │   │               │   ├── AppConfig.java                # App-level beans (e.g., ModelMapper)
+│   │   │               │   ├── SecurityConfig.java           # Spring Security + JWT setup
+│   │   │               │   ├── SwaggerConfig.java            # Swagger API documentation setup
+│   │   │               │   ├── CorsConfig.java               # Global CORS configuration
+│   │   │               │   └── AppConstants.java             # Constant variables used project-wide
+│   │   │               │
+│   │   │               ├── 📁 controller/                    # REST endpoints (HTTP layer)
+│   │   │               │   ├── UserController.java           # Authentication + profile endpoints
+│   │   │               │   ├── ProductController.java        # Product management
+│   │   │               │   ├── OrderController.java          # Order management
+│   │   │               │   ├── InventoryController.java      # Inventory reporting
+│   │   │               │   └── DashboardController.java      # Analytics + dashboard endpoints
+│   │   │               │
+│   │   │               ├── 📁 dto/                           # DTOs (data transfer objects)
+│   │   │               │   ├── request/
+│   │   │               │   │   ├── RegisterRequest.java
+│   │   │               │   │   ├── LoginRequest.java
+│   │   │               │   │   ├── ProductRequest.java
+│   │   │               │   │   ├── OrderRequest.java
+│   │   │               │   │   └── InventoryRequest.java
+│   │   │               │   └── response/
+│   │   │               │       ├── AuthResponse.java
+│   │   │               │       ├── ProductResponse.java
+│   │   │               │       ├── OrderResponse.java
+│   │   │               │       ├── InventoryResponse.java
+│   │   │               │       └── UserResponse.java
+│   │   │               │
+│   │   │               ├── 📁 model/                         # Entity classes (database tables)
+│   │   │               │   ├── User.java
+│   │   │               │   ├── Product.java
+│   │   │               │   ├── Order.java
+│   │   │               │   ├── Inventory.java
+│   │   │               │   └── Role.java (optional, if role-based auth used)
+│   │   │               │
+│   │   │               ├── 📁 repository/                    # Data access layer (JPA Repositories)
+│   │   │               │   ├── UserRepository.java
+│   │   │               │   ├── ProductRepository.java
+│   │   │               │   ├── OrderRepository.java
+│   │   │               │   └── InventoryRepository.java
+│   │   │               │
+│   │   │               ├── 📁 service/                       # Business logic layer
+│   │   │               │   ├── interfaces/
+│   │   │               │   │   ├── UserService.java
+│   │   │               │   │   ├── ProductService.java
+│   │   │               │   │   ├── OrderService.java
+│   │   │               │   │   └── InventoryService.java
+│   │   │               │   └── impl/
+│   │   │               │       ├── UserServiceImpl.java
+│   │   │               │       ├── ProductServiceImpl.java
+│   │   │               │       ├── OrderServiceImpl.java
+│   │   │               │       └── InventoryServiceImpl.java
+│   │   │               │
+│   │   │               ├── 📁 security/                      # JWT authentication & authorization
+│   │   │               │   ├── JwtUtil.java                  # Generate, validate tokens
+│   │   │               │   ├── JwtFilter.java                # Intercepts and validates tokens
+│   │   │               │   ├── CustomUserDetails.java        # Custom UserDetails for auth
+│   │   │               │   ├── CustomUserDetailsService.java # Load users for Spring Security
+│   │   │               │   └── AuthEntryPoint.java           # Handles unauthorized requests
+│   │   │               │
+│   │   │               ├── 📁 exception/                     # Centralized error handling
+│   │   │               │   ├── GlobalExceptionHandler.java   # Handles exceptions globally
+│   │   │               │   ├── ResourceNotFoundException.java
+│   │   │               │   ├── BadRequestException.java
+│   │   │               │   ├── UnauthorizedException.java
+│   │   │               │   └── DuplicateEntryException.java
+│   │   │               │
+│   │   │               ├── 📁 payload/                       # Common API response models
+│   │   │               │   ├── ApiResponse.java
+│   │   │               │   ├── ApiError.java
+│   │   │               │   └── PageResponse.java             # For paginated responses
+│   │   │               │
+│   │   │               ├── 📁 util/                          # Utility/helper classes
+│   │   │               │   ├── DateUtils.java
+│   │   │               │   ├── ResponseBuilder.java
+│   │   │               │   ├── FileUploadUtil.java           # If you add image uploads
+│   │   │               │   └── EmailService.java             # (optional)
+│   │   │               │
+│   │   │               └── 📁 mapper/                        # Mapper classes (DTO ↔ Entity)
+│   │   │                   ├── UserMapper.java
+│   │   │                   ├── ProductMapper.java
+│   │   │                   └── OrderMapper.java
+│   │   │
+│   │   └── 📁 resources/
+│   │       ├── 📄 application.properties                     # Global Spring configuration
+│   │       ├── 📄 application-dev.properties                 # Dev environment settings
+│   │       ├── 📄 application-prod.properties                # Production settings
+│   │       ├── 📄 schema.sql                                 # Database schema initialization
+│   │       ├── 📄 data.sql                                   # Sample seed data
+│   │       ├── 📁 static/                                    # Static resources (if any)
+│   │       └── 📁 templates/                                 # Email templates (if needed)
+│   │
+│   └── 📁 test/
+│       └── 📁 java/
+│           └── 📁 com/
+│               └── 📁 sakhi/
+│                   └── 📁 store/
+│                       ├── UserServiceTest.java
+│                       ├── ProductServiceTest.java
+│                       ├── OrderControllerTest.java
+│                       └── IntegrationTest.java
 │
-└── docs/
-    └── Sakhi_Store_API_Reference.md
+└── 📁 logs/                                                  # Log files (gitignored)
+    └── app.log
